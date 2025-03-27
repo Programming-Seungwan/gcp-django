@@ -25,6 +25,6 @@ RUN python manage.py collectstatic --noinput
 RUN python manage.py migrate
 
 # WSGI 서버를 사용하여 애플리케이션 실행
-CMD ["gunicorn", "testDjango.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "testDjango.wsgi:application", "--bind", "0.0.0.0:$PORT"]
 
 # 여기서 'testDjango'는 Django 프로젝트의 이름입니다. 실제 프로젝트 이름으로 변경하세요.
