@@ -20,10 +20,6 @@ COPY . /app
 # 환경 변수 설정
 ENV PYTHONUNBUFFERED=1
 
-# 데이터베이스 마이그레이션 및 정적 파일 수집
-RUN python manage.py collectstatic --noinput
-RUN python manage.py migrate
-
 # WSGI 서버를 사용하여 애플리케이션 실행
 CMD ["gunicorn", "testDjango.wsgi:application", "--bind", "0.0.0.0:$PORT"]
 
