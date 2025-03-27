@@ -6,4 +6,4 @@ from . import views
 # 여기서는 'hello/'라는 URL 경로가 'views.hello_world' 함수와 연결되어 있습니다.
 # 'name' 매개변수는 이 URL 패턴에 'hello_world'라는 이름을 부여하여,
 # 다른 곳에서 이 URL을 참조할 때 사용됩니다.
-urlpatterns = [path('hello/', views.hello_world, name='hello_world')]
+urlpatterns = [path('hello/', views.hello_world, name='hello_world'), path('test/',views.test, name='test')]
