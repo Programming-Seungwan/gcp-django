@@ -1,4 +1,5 @@
 from typing import Any
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from testapp.models import Boards
 from django.views.generic import ListView, TemplateView
@@ -28,3 +29,27 @@ def board_list(request):
         page = int(request.GET['PAGE']) # 요청을 딕셔너리로 만든 것의 PAGE 필드를 반환
     except:
         page = 1
+
+# 특정 템플릿을 렌더링
+def BoardsView(request):
+    boardList = Boards.objects.all()
+    return render(request, 'boardsview.html', {'board': boardList})
+
+def board_delete_result(reqeust):
+    if referer == "board":
+        redirection_page = '/boardapp/board_list/' + article.category.category_code + '/'
+    else:
+        redirection_page = '/boardapp/comm_list/' + article.category.category_code + '/'
+
+# 특정 문자열을 렌딩
+def user_register_idcheck(request):
+    msg = "<font color='red'>이미 존재하는 ID입니다.</font>"
+
+    return HttpResponse(msg)
+
+def board_like_result(request):
+    args = {}
+    args.update({"like_err_msg": "본인의 게시물에는 추천할 수 없습니다."})
+    args.update({"article_id": article_id})
+
+    return JsonResponse(args)
