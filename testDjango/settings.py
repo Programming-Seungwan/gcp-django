@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'testDjango.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql', # mysqlclient를 자동으로 이용함. MYSQL connector를 이용하면 mysql.connector.django임
         'NAME': 'testdb',
         'USER': 'root',
         'PASSWORD': 'password',
