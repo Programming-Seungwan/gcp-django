@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="content" />
+    <h2>Boards View List</h2>
+    {%for board in boardList%}
+    <h3>Category: {{board.category.category_name}}</h3>
+    <h3>{{board.id}}. {{board.title}}</h3>
+    <h5>
+      {{board.user.username}}({{board.user.email}}) - {{board.registered_date}}
+    </h5>
+    <p>{{board.content}}</p>
+    <br />
+    {%endfor%}
+  </body>
+</html>

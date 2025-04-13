@@ -1,8 +1,8 @@
 from django.urls import path
-from testapp.views import BoardsListClassView, BoardsFunctionView
+from testapp.views import BoardsListClassView, BoardsListFunctionView
 
 
-urlPatterns = [
+urlpatterns = [
     path('cbvList', BoardsListClassView.as_view(), name="cbv"),
-    path('fbvList', BoardsFunctionView, name="fbv")
+    path('fbvList', BoardsListFunctionView, name="fbv")
 ]

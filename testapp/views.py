@@ -9,6 +9,7 @@ from django.views.generic import ListView, TemplateView
 # CBV에서 get, post 등의 메서드에는 첫 번째 인자로 self가, 두 번째 인자로는 request가 온다.
 class BoardsListClassView(ListView):
     model = Boards
+    template_file = "boards_list_cbv.html"
 
 class BoardsTemplateClassView(TemplateView):
     template_name = "template.html"
@@ -31,9 +32,9 @@ def board_list(request):
         page = 1
 
 # 특정 템플릿을 렌더링
-def BoardsFunctionView(request):
+def BoardsListFunctionView(request):
     boardList = Boards.objects.all()
-    return render(request, 'boardsview.html', {'board': boardList})
+    return render(request, 'boardsview.html', {'boardList': boardList})
 
 def board_delete_result(reqeust):
     if referer == "board":
