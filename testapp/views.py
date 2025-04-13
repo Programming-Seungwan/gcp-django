@@ -7,7 +7,7 @@ from django.views.generic import ListView, TemplateView
 # Create your views here.
 
 # CBV에서 get, post 등의 메서드에는 첫 번째 인자로 self가, 두 번째 인자로는 request가 온다.
-class BoardsTemplateClassView(ListView):
+class BoardsListClassView(ListView):
     model = Boards
 
 class BoardsTemplateClassView(TemplateView):
@@ -31,7 +31,7 @@ def board_list(request):
         page = 1
 
 # 특정 템플릿을 렌더링
-def BoardsView(request):
+def BoardsFunctionView(request):
     boardList = Boards.objects.all()
     return render(request, 'boardsview.html', {'board': boardList})
 
@@ -47,6 +47,7 @@ def user_register_idcheck(request):
 
     return HttpResponse(msg)
 
+# Json 응답을 반환
 def board_like_result(request):
     args = {}
     args.update({"like_err_msg": "본인의 게시물에는 추천할 수 없습니다."})
